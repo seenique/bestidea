@@ -116,19 +116,19 @@ export default function BackgroundText() {
           }}
         >
           <div
-            className="flex items-start gap-2 animate-fade-in-out"
+            className="flex items-start gap-2 animate-fade-in-out mix-blend-multiply"
             style={{ animationDelay: quote.delay || "0s" }}
           >
             {/* Opening quote mark - large and prominent */}
-            <span className="text-slate-500 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none" style={{ opacity: 0.35, fontFamily: 'Georgia, serif' }}>
+            <span className="text-slate-600 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none" style={{ opacity: 0.4, fontFamily: 'Georgia, serif', textShadow: '1px 1px 2px rgba(0,0,0,0.05)' }}>
               "
             </span>
             {/* Quote text */}
-            <div className="text-sm md:text-base font-medium text-slate-700 max-w-[180px] md:max-w-[220px] leading-snug pt-1">
+            <div className="text-sm md:text-base font-medium text-slate-800 max-w-[180px] md:max-w-[220px] leading-snug pt-1" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.5)' }}>
               {quote.text}
             </div>
             {/* Closing quote mark - at the end, aligned to bottom */}
-            <span className="text-slate-500 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none self-end mb-2" style={{ opacity: 0.35, fontFamily: 'Georgia, serif' }}>
+            <span className="text-slate-600 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none self-end mb-2" style={{ opacity: 0.4, fontFamily: 'Georgia, serif', textShadow: '1px 1px 2px rgba(0,0,0,0.05)' }}>
               "
             </span>
           </div>
