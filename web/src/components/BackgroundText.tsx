@@ -22,59 +22,59 @@ export default function BackgroundText() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[1]">
       {/* Top headlines */}
-      <div className="absolute top-16 left-0 right-0 flex justify-between px-4 md:px-8 opacity-[0.08]">
-        <div className="text-xl md:text-3xl lg:text-4xl font-bold text-slate-400 whitespace-nowrap animate-slide-left">
+      <div className="absolute top-16 left-0 right-0 flex justify-between px-4 md:px-8">
+        <div className="text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-800 whitespace-nowrap animate-slide-left animate-shimmer">
           {headlines[0]}
         </div>
-        <div className="hidden lg:block text-xl md:text-3xl lg:text-4xl font-bold text-slate-400 whitespace-nowrap animate-slide-right">
+        <div className="hidden lg:block text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-800 whitespace-nowrap animate-slide-right animate-shimmer" style={{ animationDelay: '0.5s' }}>
           {headlines[1]}
         </div>
       </div>
 
       {/* Left side headlines (vertical) */}
-      <div className="absolute top-1/4 left-2 md:left-4 transform -rotate-90 origin-left opacity-[0.08]">
-        <div className="text-base md:text-2xl font-bold text-slate-400 whitespace-nowrap">
+      <div className="absolute top-1/4 left-2 md:left-4 transform -rotate-90 origin-left">
+        <div className="text-base md:text-2xl lg:text-3xl font-extrabold text-slate-800 whitespace-nowrap animate-pulse-glow">
           {headlines[2]}
         </div>
       </div>
-      <div className="absolute top-2/3 left-2 md:left-4 transform -rotate-90 origin-left opacity-[0.08]">
-        <div className="text-base md:text-2xl font-bold text-slate-400 whitespace-nowrap">
+      <div className="absolute top-2/3 left-2 md:left-4 transform -rotate-90 origin-left">
+        <div className="text-base md:text-2xl lg:text-3xl font-extrabold text-slate-800 whitespace-nowrap animate-pulse-glow" style={{ animationDelay: '1s' }}>
           {headlines[5]}
         </div>
       </div>
 
       {/* Right side headlines (vertical) */}
-      <div className="absolute top-1/3 right-2 md:right-4 transform rotate-90 origin-right opacity-[0.08]">
-        <div className="text-base md:text-2xl font-bold text-slate-400 whitespace-nowrap">
+      <div className="absolute top-1/3 right-2 md:right-4 transform rotate-90 origin-right">
+        <div className="text-base md:text-2xl lg:text-3xl font-extrabold text-slate-800 whitespace-nowrap animate-pulse-glow" style={{ animationDelay: '0.3s' }}>
           {headlines[3]}
         </div>
       </div>
-      <div className="absolute bottom-1/4 right-2 md:right-4 transform rotate-90 origin-right opacity-[0.08]">
-        <div className="text-base md:text-2xl font-bold text-slate-400 whitespace-nowrap">
+      <div className="absolute bottom-1/4 right-2 md:right-4 transform rotate-90 origin-right">
+        <div className="text-base md:text-2xl lg:text-3xl font-extrabold text-slate-800 whitespace-nowrap animate-pulse-glow" style={{ animationDelay: '1.5s' }}>
           {headlines[9]}
         </div>
       </div>
 
       {/* Bottom headlines */}
-      <div className="absolute bottom-16 left-0 right-0 flex justify-between px-4 md:px-8 opacity-[0.08]">
-        <div className="text-xl md:text-3xl lg:text-4xl font-bold text-slate-400 whitespace-nowrap animate-slide-right">
+      <div className="absolute bottom-16 left-0 right-0 flex justify-between px-4 md:px-8">
+        <div className="text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-800 whitespace-nowrap animate-slide-right animate-shimmer" style={{ animationDelay: '1s' }}>
           {headlines[4]}
         </div>
-        <div className="hidden lg:block text-xl md:text-3xl lg:text-4xl font-bold text-slate-400 whitespace-nowrap animate-slide-left">
+        <div className="hidden lg:block text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-800 whitespace-nowrap animate-slide-left animate-shimmer" style={{ animationDelay: '1.5s' }}>
           {headlines[6]}
         </div>
       </div>
 
       {/* Additional floating text elements */}
-      <div className="absolute top-1/2 left-1/4 opacity-[0.06]">
-        <div className="text-lg md:text-2xl font-bold text-slate-300 transform -rotate-12">
+      <div className="absolute top-1/2 left-1/4">
+        <div className="text-lg md:text-2xl lg:text-3xl font-extrabold text-slate-600 transform -rotate-12 animate-shimmer" style={{ animationDelay: '0.7s' }}>
           {headlines[7]}
         </div>
       </div>
-      <div className="absolute bottom-1/3 right-1/4 opacity-[0.06]">
-        <div className="text-lg md:text-2xl font-bold text-slate-300 transform rotate-12">
+      <div className="absolute bottom-1/3 right-1/4">
+        <div className="text-lg md:text-2xl lg:text-3xl font-extrabold text-slate-600 transform rotate-12 animate-shimmer" style={{ animationDelay: '1.2s' }}>
           {headlines[10]}
         </div>
       </div>
