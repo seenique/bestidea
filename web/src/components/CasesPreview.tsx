@@ -6,19 +6,19 @@ const PREVIEW_CASES = [
     title: "CRM для отдела продаж",
     company: "TechSales Pro",
     result: "+22% конверсия",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&q=90&auto=format",
   },
   {
     title: "ERP для логистики",
     company: "LogiWare",
     result: "-60% ошибки сборки",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop&q=90&auto=format",
   },
   {
     title: "Маркетплейс услуг",
     company: "ServiceMarket",
     result: "+18% конверсия",
-    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=400&h=250&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=400&h=250&fit=crop&q=90&auto=format",
   },
 ];
 
@@ -52,7 +52,8 @@ export default function CasesPreview() {
                 <img
                   src={c.image}
                   alt={c.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">

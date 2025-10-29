@@ -32,8 +32,8 @@ export default function Home() {
       <main className="relative z-10">
         {/* Hero */}
         <section className="border-b border-slate-200/50 bg-gradient-to-b from-slate-50/60 to-white/50 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
-          <SectionQuote text="Этот сайт был создан за 45 минут" top="5%" left="2%" rotation={-8} delay="0s" />
-          <SectionQuote text="CRM за неделю — реальность 2025 года" top="5%" right="2%" rotation={8} delay="0.5s" />
+          <SectionQuote text="Этот сайт был создан за 45 минут" top="5%" left="2%" rotation={-3} delay="0s" />
+          <SectionQuote text="CRM за неделю — реальность 2025 года" top="5%" right="2%" rotation={3} delay="0.5s" />
           <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-2 md:py-28 relative z-10">
             <div>
               <h1 className="text-3xl font-bold leading-tight md:text-5xl text-slate-900">
@@ -76,19 +76,29 @@ export default function Home() {
 
         {/* Benefits */}
         <section id="benefits" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
-          <SectionQuote text="10× дешевле — не маркетинг" top="10%" right="3%" rotation={10} delay="1s" />
+          <SectionQuote text="10× дешевле — не маркетинг" top="10%" right="3%" rotation={4} delay="1s" />
           <div className="mx-auto grid max-w-6xl gap-6 px-6 py-16 md:grid-cols-3">
             {[
-              { title: "Дешевизна", desc: "снижение бюджета разработки до 10× за счет ИИ и модульности" },
-              { title: "Скорость", desc: "MVP за 1–3 недели, релизы — каждые 3–5 дней" },
-              { title: "Масштабируемость", desc: "от лендинга до ERP без переписываний" },
-              { title: "Качество", desc: "автотесты, линтеры, типы, метрики качества" },
-              { title: "Интеграции", desc: "1С, Битрикс24, Google, Telegram, WhatsApp, любые API" },
-              { title: "Прозрачность", desc: "еженедельные демо, SLA, план работ" },
-            ].map((b) => (
-              <div key={b.title} className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-md transition-all">
-                <div className="text-lg font-semibold text-slate-900">{b.title}</div>
-                <div className="mt-2 text-sm text-slate-600">{b.desc}</div>
+              { title: "Дешевизна", desc: "снижение бюджета разработки до 10× за счет ИИ и модульности", icon: "💰" },
+              { title: "Скорость", desc: "MVP за 1–3 недели, релизы — каждые 3–5 дней", icon: "⚡" },
+              { title: "Масштабируемость", desc: "от лендинга до ERP без переписываний", icon: "📈" },
+              { title: "Качество", desc: "автотесты, линтеры, типы, метрики качества", icon: "✨" },
+              { title: "Интеграции", desc: "1С, Битрикс24, Google, Telegram, WhatsApp, любые API", icon: "🔗" },
+              { title: "Прозрачность", desc: "еженедельные демо, SLA, план работ", icon: "📊" },
+            ].map((b, idx) => (
+              <div 
+                key={b.title} 
+                className="group relative rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-xl transition-all overflow-hidden animate-fade-in-up"
+                style={{ animationDelay: `${idx * 0.1}s` }}
+              >
+                <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-cyan-400/20 rounded-full blur-2xl group-hover:opacity-50 transition-opacity`} />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-2xl">{b.icon}</span>
+                    <div className="text-lg font-semibold text-slate-900">{b.title}</div>
+                  </div>
+                  <div className="mt-2 text-sm text-slate-600 leading-relaxed">{b.desc}</div>
+                </div>
               </div>
             ))}
           </div>
@@ -96,7 +106,7 @@ export default function Home() {
 
         {/* Catalog */}
         <section id="catalog" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
-          <SectionQuote text="От идеи до MVP за дни" top="10%" left="3%" rotation={-10} delay="1.5s" />
+          <SectionQuote text="От идеи до MVP за дни" top="3%" left="2%" rotation={-2} delay="1.5s" />
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Каталог решений</h2>
             <p className="text-slate-600 mb-8">Что мы создаём с помощью ИИ</p>
@@ -112,9 +122,14 @@ export default function Home() {
                 "PWA и мобильные веб‑приложения",
                 "LMS и обучение",
                 "SaaS‑платформы",
-              ].map((c) => (
-                <div key={c} className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-5 text-sm hover:border-slate-300/70 hover:shadow-md transition-all text-slate-700">
-                  {c}
+              ].map((c, idx) => (
+                <div 
+                  key={c} 
+                  className="group relative rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-5 text-sm hover:border-slate-300/70 hover:shadow-lg hover:scale-105 transition-all text-slate-700 cursor-pointer overflow-hidden"
+                  style={{ animationDelay: `${idx * 0.05}s` }}
+                >
+                  <div className={`absolute top-0 left-0 w-full h-full bg-gradient-to-br ${idx % 2 === 0 ? 'from-purple-500/5 to-cyan-500/5' : 'from-cyan-500/5 to-purple-500/5'} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                  <div className="relative z-10">{c}</div>
                 </div>
               ))}
             </div>
@@ -123,7 +138,7 @@ export default function Home() {
 
         {/* Process */}
         <section id="process" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
-          <SectionQuote text="Будущее разработки уже здесь" top="10%" right="3%" rotation={12} delay="2s" />
+          <SectionQuote text="Будущее разработки уже здесь" top="10%" right="3%" rotation={5} delay="2s" />
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Процесс</h2>
             <p className="text-slate-600 mb-8">Как мы работаем</p>
@@ -155,8 +170,8 @@ export default function Home() {
 
         {/* Pricing */}
         <section id="pricing" className="border-b border-slate-200/50 bg-slate-50/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
-          <SectionQuote text="Маркетплейс за 6 недель" top="8%" left="3%" rotation={-12} delay="0.8s" />
-          <SectionQuote text="ERP без миллиона рублей" top="8%" right="3%" rotation={12} delay="1.2s" />
+          <SectionQuote text="Маркетплейс за 6 недель" top="3%" right="2%" rotation={2} delay="0.8s" />
+          <SectionQuote text="ERP без миллиона рублей" top="8%" right="3%" rotation={5} delay="1.2s" />
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Пакеты и цены</h2>
             <p className="text-slate-600 mb-8">Выберите подходящий вариант</p>
@@ -187,7 +202,7 @@ export default function Home() {
 
         {/* Lead Form */}
         <section id="lead" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
-          <SectionQuote text="Скорость. Экономия. Результат." top="10%" right="3%" rotation={15} delay="1.8s" />
+          <SectionQuote text="Скорость. Экономия. Результат." top="10%" right="3%" rotation={4} delay="1.8s" />
           <div className="mx-auto max-w-2xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Получить расчет за 24 часа</h2>
             <p className="text-slate-600 mb-6">Заполните форму, мы свяжемся с вами</p>
@@ -203,7 +218,7 @@ export default function Home() {
 
         {/* CTA */}
         <section id="contact" className="bg-slate-50/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
-          <SectionQuote text="Твой собственный стартап за неделю" top="10%" left="3%" rotation={-15} delay="0.6s" />
+          <SectionQuote text="Твой собственный стартап за неделю" top="10%" left="3%" rotation={-4} delay="0.6s" />
           <div className="mx-auto max-w-6xl px-6 py-16 text-center">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Готовы начать?</h2>
             <p className="mt-3 text-slate-700 text-lg">Созвон на 15 минут — покажем демо и соберем бриф.</p>
