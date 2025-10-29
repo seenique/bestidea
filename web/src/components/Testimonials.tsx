@@ -44,7 +44,7 @@ export default function Testimonials() {
     },
   ];
   return (
-    <section className="border-b border-slate-200 bg-white">
+    <section className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-3xl font-bold mb-2 text-slate-900">Отзывы</h2>
         <p className="text-slate-600 mb-8">Что говорят клиенты</p>
@@ -52,7 +52,7 @@ export default function Testimonials() {
           {items.map((t, i) => (
             <div
               key={i}
-              className="rounded-xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-md transition-all"
+              className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-md transition-all"
             >
               <div className="flex items-center gap-3 mb-4">
                 <img

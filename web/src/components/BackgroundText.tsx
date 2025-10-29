@@ -121,15 +121,15 @@ export default function BackgroundText() {
             style={{ animationDelay: quote.delay || "0s" }}
           >
             {/* Opening quote mark - large and prominent */}
-            <span className="text-slate-600 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none drop-shadow-sm" style={{ fontFamily: 'Georgia, serif' }}>
+            <span className="text-slate-700 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none drop-shadow-md" style={{ fontFamily: 'Georgia, serif' }}>
               "
             </span>
             {/* Quote text */}
-            <div className="text-sm md:text-base font-medium text-slate-800 max-w-[180px] md:max-w-[220px] leading-snug pt-1 drop-shadow-sm">
+            <div className="text-sm md:text-base font-semibold text-slate-900 max-w-[180px] md:max-w-[220px] leading-snug pt-1 drop-shadow-sm">
               {quote.text}
             </div>
             {/* Closing quote mark - at the end, aligned to bottom */}
-            <span className="text-slate-600 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none self-end mb-2 drop-shadow-sm" style={{ fontFamily: 'Georgia, serif' }}>
+            <span className="text-slate-700 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none self-end mb-2 drop-shadow-md" style={{ fontFamily: 'Georgia, serif' }}>
               "
             </span>
           </div>

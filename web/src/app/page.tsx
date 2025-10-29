@@ -27,7 +27,7 @@ export default function Home() {
       <BackgroundText />
       <main className="relative z-10">
         {/* Hero */}
-        <section className="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white relative" style={{ overflow: 'visible' }}>
+        <section className="border-b border-slate-200/50 bg-gradient-to-b from-slate-50/60 to-white/50 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
           <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-2 md:py-28 relative z-10">
             <div>
               <h1 className="text-3xl font-bold leading-tight md:text-5xl text-slate-900">
@@ -38,25 +38,25 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a href="#lead" className="btn-brand rounded-full px-5 py-3 text-white font-medium">Заказать аудит за 0 ₽</a>
-                <a href="#catalog" className="rounded-full border border-slate-300 bg-white px-5 py-3 font-medium hover:border-slate-400 hover:bg-slate-50 transition-colors text-slate-700">Каталог решений</a>
+                <a href="#catalog" className="rounded-full border border-slate-300/70 bg-white/70 backdrop-blur-sm px-5 py-3 font-medium hover:border-slate-400/70 hover:bg-white/80 transition-colors text-slate-700">Каталог решений</a>
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur-sm p-6 shadow-sm">
               <HeroSection />
               <div className="grid grid-cols-2 gap-4 text-sm mt-6">
-                <div className="rounded-xl bg-white border border-slate-200 p-4">
+                <div className="rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/70 p-4">
                   <div className="text-3xl font-bold text-slate-900">10×</div>
                   <div className="text-slate-600 mt-1">дешевле</div>
                 </div>
-                <div className="rounded-xl bg-white border border-slate-200 p-4">
+                <div className="rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/70 p-4">
                   <div className="text-3xl font-bold text-slate-900">7,5×</div>
                   <div className="text-slate-600 mt-1">быстрее</div>
                 </div>
-                <div className="rounded-xl bg-white border border-slate-200 p-4">
+                <div className="rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/70 p-4">
                   <div className="text-3xl font-bold text-slate-900">2–6 недель</div>
                   <div className="text-slate-600 mt-1">до запуска</div>
                 </div>
-                <div className="rounded-xl bg-white border border-slate-200 p-4">
+                <div className="rounded-xl bg-white/80 backdrop-blur-sm border border-slate-200/70 p-4">
                   <div className="text-3xl font-bold text-slate-900">750%</div>
                   <div className="text-slate-600 mt-1">рост эффективности</div>
                 </div>
@@ -66,7 +66,7 @@ export default function Home() {
         </section>
 
         {/* Benefits */}
-        <section id="benefits" className="border-b border-slate-200 bg-white">
+        <section id="benefits" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
           <div className="mx-auto grid max-w-6xl gap-6 px-6 py-16 md:grid-cols-3">
             {[
               { title: "Дешевизна", desc: "снижение бюджета разработки до 10× за счет ИИ и модульности" },
@@ -76,7 +76,7 @@ export default function Home() {
               { title: "Интеграции", desc: "1С, Битрикс24, Google, Telegram, WhatsApp, любые API" },
               { title: "Прозрачность", desc: "еженедельные демо, SLA, план работ" },
             ].map((b) => (
-              <div key={b.title} className="rounded-xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-md transition-all">
+              <div key={b.title} className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-md transition-all">
                 <div className="text-lg font-semibold text-slate-900">{b.title}</div>
                 <div className="mt-2 text-sm text-slate-600">{b.desc}</div>
               </div>
@@ -85,7 +85,7 @@ export default function Home() {
         </section>
 
         {/* Catalog */}
-        <section id="catalog" className="border-b border-slate-200 bg-white">
+        <section id="catalog" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Каталог решений</h2>
             <p className="text-slate-600 mb-8">Что мы создаём с помощью ИИ</p>
@@ -102,7 +102,7 @@ export default function Home() {
                 "LMS и обучение",
                 "SaaS‑платформы",
               ].map((c) => (
-                <div key={c} className="rounded-xl border border-slate-200 bg-white p-5 text-sm hover:border-slate-300 hover:shadow-md transition-all text-slate-700">
+                <div key={c} className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-5 text-sm hover:border-slate-300/70 hover:shadow-md transition-all text-slate-700">
                   {c}
                 </div>
               ))}
@@ -111,7 +111,7 @@ export default function Home() {
         </section>
 
         {/* Process */}
-        <section id="process" className="border-b border-slate-200 bg-white">
+        <section id="process" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Процесс</h2>
             <p className="text-slate-600 mb-8">Как мы работаем</p>
@@ -123,7 +123,7 @@ export default function Home() {
                 "Запуск и аналитика → метрики, A/B",
                 "Поддержка и развитие → SLA/roadmap",
               ].map((step, i) => (
-                <li key={i} className="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-md transition-all relative">
+                <li key={i} className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-5 hover:border-slate-300/70 hover:shadow-md transition-all relative">
                   <div className="absolute -top-2 -left-2 w-6 h-6 bg-slate-900 text-white rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</div>
                   <span className="text-slate-700">{step}</span>
                 </li>
@@ -136,7 +136,7 @@ export default function Home() {
         <Testimonials />
 
         {/* Pricing */}
-        <section id="pricing" className="border-b border-slate-200 bg-slate-50">
+        <section id="pricing" className="border-b border-slate-200/50 bg-slate-50/60 backdrop-blur-sm">
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Пакеты и цены</h2>
             <p className="text-slate-600 mb-8">Выберите подходящий вариант</p>
@@ -146,7 +146,7 @@ export default function Home() {
                 { name: "Growth", price: "от 145 000 ₽", time: "2–4 недели", features: ["CRM/интеграции", "Автотесты", "CI/CD"] },
                 { name: "Scale", price: "от 345 000 ₽", time: "4–8 недель", features: ["ERP/маркетплейс", "Высокая нагрузка", "Поддержка"] },
               ].map((p) => (
-                <div key={p.name} className="rounded-2xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-lg transition-all">
+                <div key={p.name} className="rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-lg transition-all">
                   <div className="text-xl font-semibold text-slate-900">{p.name}</div>
                   <div className="mt-2 text-3xl font-bold text-slate-900">{p.price}</div>
                   <div className="text-sm text-slate-600">Сроки: {p.time}</div>
@@ -166,14 +166,14 @@ export default function Home() {
         </section>
 
         {/* Lead Form */}
-        <section id="lead" className="border-b border-slate-200 bg-white">
+        <section id="lead" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
           <div className="mx-auto max-w-2xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Получить расчет за 24 часа</h2>
             <p className="text-slate-600 mb-6">Заполните форму, мы свяжемся с вами</p>
             <form className="mt-6 grid gap-4" method="post" action="/api/lead">
-              <input name="name" className="rounded-xl border border-slate-300 bg-white p-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all" placeholder="Ваше имя" required />
-              <input name="contact" className="rounded-xl border border-slate-300 bg-white p-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all" placeholder="Телеграм/почта" required />
-              <textarea name="about" className="rounded-xl border border-slate-300 bg-white p-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all" placeholder="Что хотите создать?" rows={4} />
+              <input name="name" className="rounded-xl border border-slate-300/70 bg-white/80 backdrop-blur-sm p-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all" placeholder="Ваше имя" required />
+              <input name="contact" className="rounded-xl border border-slate-300/70 bg-white/80 backdrop-blur-sm p-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all" placeholder="Телеграм/почта" required />
+              <textarea name="about" className="rounded-xl border border-slate-300/70 bg-white/80 backdrop-blur-sm p-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all" placeholder="Что хотите создать?" rows={4} />
               <button className="btn-brand rounded-full px-5 py-3 font-medium" type="submit">Отправить</button>
             </form>
             <p className="mt-3 text-sm text-slate-500">Нажимая «Отправить», вы соглашаетесь с обработкой данных.</p>
@@ -181,7 +181,7 @@ export default function Home() {
         </section>
 
         {/* CTA */}
-        <section id="contact" className="bg-slate-50">
+        <section id="contact" className="bg-slate-50/60 backdrop-blur-sm">
           <div className="mx-auto max-w-6xl px-6 py-16 text-center">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Готовы начать?</h2>
             <p className="mt-3 text-slate-700 text-lg">Созвон на 15 минут — покажем демо и соберем бриф.</p>
@@ -190,7 +190,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-slate-200 bg-white py-10 text-center text-sm text-slate-600">
+      <footer className="border-t border-slate-200/50 bg-white/60 backdrop-blur-sm py-10 text-center text-sm text-slate-600">
         © {new Date().getFullYear()} bestidea — ИИ‑разработка
       </footer>
     </div>

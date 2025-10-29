@@ -200,10 +200,10 @@ body {
 
 @keyframes fade-in-out {
   0%, 100% { 
-    opacity: 0.5; 
+    opacity: 0.6; 
   }
   50% { 
-    opacity: 0.75; 
+    opacity: 0.85; 
   }
 }
 
