@@ -6,6 +6,7 @@ import SectionQuote from "@/components/SectionQuote";
 import CasesPreview from "@/components/CasesPreview";
 import StatsSection from "@/components/StatsSection";
 import ComparisonSection from "@/components/ComparisonSection";
+import ChatAssistant from "@/components/ChatAssistant";
 
 export default function Home() {
   return (
@@ -215,6 +216,9 @@ export default function Home() {
             <p className="mt-3 text-sm text-slate-500">Нажимая «Отправить», вы соглашаетесь с обработкой данных.</p>
           </div>
         </section>
+
+        {/* Chat Assistant */}
+        <ChatAssistant />
 
         {/* CTA */}
         <section id="contact" className="bg-slate-50/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>

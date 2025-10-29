@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import BackgroundText from "@/components/BackgroundText";
 
 // Metadata moved to layout or handled via Head in client component
@@ -18,7 +19,7 @@ const CASES = [
       { metric: "-40%", label: "время на отчёты" },
     ],
     tech: ["Next.js", "TypeScript", "PostgreSQL", "1С интеграция"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&q=90&auto=format",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80",
   },
   {
     title: "ERP для складской логистики",
@@ -33,7 +34,7 @@ const CASES = [
       { metric: "Мобильно", label: "доступ с терминалов" },
     ],
     tech: ["React", "Node.js", "Docker", "Mobile PWA"],
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=400&fit=crop&q=90&auto=format",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=500&fit=crop&q=80",
   },
   {
     title: "Маркетплейс услуг",
@@ -48,7 +49,7 @@ const CASES = [
       { metric: "0 нарушений", label: "антифрод за 3 месяца" },
     ],
     tech: ["Next.js", "Stripe API", "WebSocket", "Redis"],
-    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=400&fit=crop&q=90&auto=format",
+    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=500&fit=crop&q=80",
   },
   {
     title: "E-commerce платформа",
@@ -63,7 +64,7 @@ const CASES = [
       { metric: "24/7", label: "без простоев" },
     ],
     tech: ["Next.js", "Shopify API", "Payment Gateways"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop&q=90&auto=format",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&q=80",
   },
   {
     title: "Система управления обучением",
@@ -78,7 +79,7 @@ const CASES = [
       { metric: "HD видео", label: "стриминг" },
     ],
     tech: ["React", "Node.js", "FFmpeg", "WebRTC"],
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&q=90&auto=format",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop&q=80",
   },
   {
     title: "Портал для HR-отдела",
@@ -93,7 +94,7 @@ const CASES = [
       { metric: "Интеграции", label: "5 источников вакансий" },
     ],
     tech: ["Vue.js", "Python", "AI Matching"],
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=400&fit=crop&q=90&auto=format",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=500&fit=crop&q=80",
   },
 ];
 
@@ -137,12 +138,15 @@ export default function CasesPage() {
                   key={idx} 
                   className="group relative rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-sm overflow-hidden hover:border-slate-300/70 hover:shadow-xl transition-all"
                 >
-                  <div className="relative h-56 overflow-hidden">
-                    <img 
+                  <div className="relative h-56 overflow-hidden bg-slate-200">
+                    <Image 
                       src={c.image} 
                       alt={c.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       loading={idx < 3 ? "eager" : "lazy"}
+                      unoptimized
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">

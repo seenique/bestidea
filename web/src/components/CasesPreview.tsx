@@ -1,24 +1,25 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 
 const PREVIEW_CASES = [
   {
     title: "CRM для отдела продаж",
     company: "TechSales Pro",
     result: "+22% конверсия",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&q=90&auto=format",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80",
   },
   {
     title: "ERP для логистики",
     company: "LogiWare",
     result: "-60% ошибки сборки",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop&q=90&auto=format",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=500&fit=crop&q=80",
   },
   {
     title: "Маркетплейс услуг",
     company: "ServiceMarket",
     result: "+18% конверсия",
-    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=400&h=250&fit=crop&q=90&auto=format",
+    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=500&fit=crop&q=80",
   },
 ];
 
@@ -48,12 +49,14 @@ export default function CasesPreview() {
               href="/cases"
               className="group rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-sm overflow-hidden hover:border-slate-300/70 hover:shadow-lg transition-all"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
+              <div className="relative h-48 overflow-hidden bg-slate-200">
+                <Image
                   src={c.image}
                   alt={c.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">

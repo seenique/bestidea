@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionQuote from "@/components/SectionQuote";
 
 export default function Testimonials() {
@@ -58,11 +59,16 @@ export default function Testimonials() {
               className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-lg transition-all group"
             >
               <div className="flex items-start gap-4 mb-4">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-slate-200 group-hover:border-purple-300 transition-colors"
-                />
+                <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-purple-300 transition-colors">
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    fill
+                    className="object-cover"
+                    sizes="56px"
+                    unoptimized
+                  />
+                </div>
                 <div className="flex-1">
                   <div className="font-bold text-slate-900 mb-1">{t.name}</div>
                   <div className="text-xs text-slate-500 mb-2">{t.role}</div>
