@@ -188,15 +188,16 @@ export default function Home() {
                     <div className={`text-xl font-semibold ${idx === 0 ? 'text-purple-600' : idx === 1 ? 'text-cyan-600' : 'text-amber-600'}`}>{p.name}</div>
                     <div className="mt-2 text-3xl font-bold gradient-text">{p.price}</div>
                     <div className="text-sm text-slate-600">Сроки: {p.time}</div>
-                  <ul className="mt-4 space-y-2 text-sm">
-                    {p.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-slate-700">
-                        <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500"></span>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <a href="#lead" className="mt-6 inline-block btn-brand rounded-full px-4 py-2 text-sm w-full text-center">Выбрать</a>
+                    <ul className="mt-4 space-y-2 text-sm">
+                      {p.features.map((f) => (
+                        <li key={f} className="flex items-center gap-2 text-slate-700">
+                          <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500"></span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <a href="#lead" className="mt-6 inline-block btn-brand rounded-full px-4 py-2 text-sm w-full text-center">Выбрать</a>
+                  </div>
                 </div>
               ))}
             </div>
