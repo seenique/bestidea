@@ -1,6 +1,7 @@
 "use client";
 export default function SeoJsonLd() {
-  const site = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const site = siteUrl.startsWith("http") ? siteUrl : `https://${siteUrl}`;
   const org = {
     "@context": "https://schema.org",
     "@type": "Organization",

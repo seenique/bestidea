@@ -14,11 +14,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const baseUrl = siteUrl.startsWith("http") ? siteUrl : `https://${siteUrl}`;
+
 export const metadata: Metadata = {
   title: "Новая скорость разработки: ИИ‑лендинг, CRM, ERP в 10× дешевле",
   description:
     "Создаем лендинги, CRM/ERP и маркетплейсы с помощью нейросетей: 10× дешевле, запуск за 1–3 недели, эффективность до 750%.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(baseUrl),
   openGraph: {
     title: "bestidea — ИИ‑разработка",
     description: "В 10× дешевле и в 7,5× быстрее",
@@ -32,7 +35,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    canonical: baseUrl,
   },
 };
 

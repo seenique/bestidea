@@ -44,25 +44,24 @@ export default function Testimonials() {
     },
   ];
   return (
-    <section className="border-b border-purple-200/40 bg-gradient-to-br from-cyan-50/50 to-purple-50/50">
+    <section className="border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-3xl font-bold mb-2"><span className="gradient-text">Отзывы</span></h2>
+        <h2 className="text-3xl font-bold mb-2 text-slate-900">Отзывы</h2>
         <p className="text-slate-600 mb-8">Что говорят клиенты</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((t, i) => (
             <div
               key={i}
-              className="glass shadow-elevated rounded-2xl border-2 border-purple-200/40 p-6 hover:border-cyan-300/60 transition-all relative"
+              className="rounded-xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-md transition-all"
             >
-              <div className="absolute top-4 right-4 text-2xl opacity-20">💬</div>
-              <div className="flex items-center gap-3 mb-4 relative z-10">
+              <div className="flex items-center gap-3 mb-4">
                 <img
                   src={t.avatar}
                   alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-purple-200/60"
+                  className="w-12 h-12 rounded-full object-cover border border-slate-200"
                 />
                 <div className="flex-1">
-                  <div className="font-bold text-slate-800">{t.name}</div>
+                  <div className="font-bold text-slate-900">{t.name}</div>
                   <div className="text-xs text-slate-500">{t.role}</div>
                 </div>
               </div>
@@ -71,7 +70,7 @@ export default function Testimonials() {
                   <span key={i} className="text-amber-400">⭐</span>
                 ))}
               </div>
-              <div className="text-slate-700 text-sm relative z-10 leading-relaxed">"{t.text}"</div>
+              <div className="text-slate-700 text-sm leading-relaxed">"{t.text}"</div>
             </div>
           ))}
         </div>
