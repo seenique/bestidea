@@ -32,7 +32,7 @@ export default function Home() {
       <BackgroundText />
       <main className="relative z-10">
         {/* Hero */}
-        <section className="border-b border-slate-200/50 bg-gradient-to-b from-slate-50/60 to-white/50 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+        <section className="border-b border-slate-200/50 bg-gradient-to-b from-slate-50/60 via-purple-50/30 to-white/50 backdrop-blur-sm relative overflow-hidden">
           <SectionQuote text="Этот сайт был создан за 45 минут" top="5%" left="2%" rotation={-3} delay="0s" />
           <SectionQuote text="CRM за неделю — реальность 2025 года" top="5%" right="2%" rotation={3} delay="0.5s" />
           <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-2 md:py-28 relative z-10">
@@ -76,7 +76,7 @@ export default function Home() {
         <StatsSection />
 
         {/* Benefits */}
-        <section id="benefits" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+        <section id="benefits" className="border-b border-slate-200/50 bg-gradient-to-br from-white/70 via-purple-50/40 to-cyan-50/40 backdrop-blur-sm relative overflow-hidden">
           <SectionQuote text="10× дешевле — не маркетинг" top="10%" right="3%" rotation={4} delay="1s" />
           <div className="mx-auto grid max-w-6xl gap-6 px-6 py-16 md:grid-cols-3">
             {[
@@ -106,7 +106,7 @@ export default function Home() {
         </section>
 
         {/* Catalog */}
-        <section id="catalog" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+        <section id="catalog" className="border-b border-slate-200/50 bg-gradient-to-br from-white/70 via-cyan-50/40 to-purple-50/40 backdrop-blur-sm relative overflow-hidden">
           <SectionQuote text="От идеи до MVP за дни" top="3%" left="2%" rotation={-2} delay="1.5s" />
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Каталог решений</h2>
@@ -138,7 +138,7 @@ export default function Home() {
         </section>
 
         {/* Process */}
-        <section id="process" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+        <section id="process" className="border-b border-slate-200/50 bg-gradient-to-br from-white/70 via-purple-50/30 to-white/70 backdrop-blur-sm relative overflow-hidden">
           <SectionQuote text="Будущее разработки уже здесь" top="10%" right="3%" rotation={5} delay="2s" />
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Процесс</h2>
@@ -151,8 +151,8 @@ export default function Home() {
                 "Запуск и аналитика → метрики, A/B",
                 "Поддержка и развитие → SLA/roadmap",
               ].map((step, i) => (
-                <li key={i} className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-5 hover:border-slate-300/70 hover:shadow-md transition-all relative">
-                  <div className="absolute -top-2 -left-2 w-6 h-6 bg-slate-900 text-white rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</div>
+                <li key={i} className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-5 hover:border-purple-300/70 hover:shadow-lg transition-all relative group">
+                  <div className="absolute -top-2 -left-2 w-6 h-6 bg-gradient-to-br from-purple-500 to-cyan-500 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg group-hover:scale-110 transition-transform">{i + 1}</div>
                   <span className="text-slate-700">{step}</span>
                 </li>
               ))}
@@ -170,7 +170,7 @@ export default function Home() {
         <Testimonials />
 
         {/* Pricing */}
-        <section id="pricing" className="border-b border-slate-200/50 bg-slate-50/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+        <section id="pricing" className="border-b border-slate-200/50 bg-gradient-to-br from-purple-50/50 via-white/70 to-cyan-50/50 backdrop-blur-sm relative overflow-hidden">
           <SectionQuote text="Маркетплейс за 6 недель" top="3%" right="2%" rotation={2} delay="0.8s" />
           <SectionQuote text="ERP без миллиона рублей" top="8%" right="3%" rotation={5} delay="1.2s" />
           <div className="mx-auto max-w-6xl px-6 py-16">
@@ -181,15 +181,17 @@ export default function Home() {
                 { name: "Start", price: "от 49 500 ₽", time: "1–2 недели", features: ["Лендинг/MVP", "Аналитика", "Базовые интеграции"] },
                 { name: "Growth", price: "от 145 000 ₽", time: "2–4 недели", features: ["CRM/интеграции", "Автотесты", "CI/CD"] },
                 { name: "Scale", price: "от 345 000 ₽", time: "4–8 недель", features: ["ERP/маркетплейс", "Высокая нагрузка", "Поддержка"] },
-              ].map((p) => (
-                <div key={p.name} className="rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-lg transition-all">
-                  <div className="text-xl font-semibold text-slate-900">{p.name}</div>
-                  <div className="mt-2 text-3xl font-bold text-slate-900">{p.price}</div>
-                  <div className="text-sm text-slate-600">Сроки: {p.time}</div>
+              ].map((p, idx) => (
+                <div key={p.name} className="relative rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-purple-400/70 hover:shadow-xl transition-all overflow-hidden group">
+                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${idx === 0 ? 'from-purple-400/20 to-purple-600/20' : idx === 1 ? 'from-cyan-400/20 to-cyan-600/20' : 'from-amber-400/20 to-amber-600/20'} rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity`} />
+                  <div className="relative z-10">
+                    <div className={`text-xl font-semibold ${idx === 0 ? 'text-purple-600' : idx === 1 ? 'text-cyan-600' : 'text-amber-600'}`}>{p.name}</div>
+                    <div className="mt-2 text-3xl font-bold gradient-text">{p.price}</div>
+                    <div className="text-sm text-slate-600">Сроки: {p.time}</div>
                   <ul className="mt-4 space-y-2 text-sm">
                     {p.features.map((f) => (
                       <li key={f} className="flex items-center gap-2 text-slate-700">
-                        <span className="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500"></span>
                         {f}
                       </li>
                     ))}
@@ -202,7 +204,7 @@ export default function Home() {
         </section>
 
         {/* Lead Form */}
-        <section id="lead" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+        <section id="lead" className="border-b border-slate-200/50 bg-gradient-to-br from-white/80 via-purple-50/30 to-white/80 backdrop-blur-sm relative overflow-hidden">
           <SectionQuote text="Скорость. Экономия. Результат." top="10%" right="3%" rotation={4} delay="1.8s" />
           <div className="mx-auto max-w-2xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Получить расчет за 24 часа</h2>
@@ -221,7 +223,7 @@ export default function Home() {
         <ChatAssistant />
 
         {/* CTA */}
-        <section id="contact" className="bg-slate-50/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+        <section id="contact" className="bg-gradient-to-br from-purple-100/50 via-cyan-100/50 to-white/70 backdrop-blur-sm relative overflow-hidden">
           <SectionQuote text="Твой собственный стартап за неделю" top="10%" left="3%" rotation={-4} delay="0.6s" />
           <div className="mx-auto max-w-6xl px-6 py-16 text-center">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Готовы начать?</h2>

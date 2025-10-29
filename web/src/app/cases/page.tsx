@@ -138,7 +138,7 @@ export default function CasesPage() {
                   key={idx} 
                   className="group relative rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-sm overflow-hidden hover:border-slate-300/70 hover:shadow-xl transition-all"
                 >
-                  <div className="relative h-56 overflow-hidden bg-slate-200">
+                  <div className="relative h-56 overflow-hidden bg-gradient-to-br from-purple-100 to-cyan-100">
                     <Image 
                       src={c.image} 
                       alt={c.title}
@@ -147,6 +147,10 @@ export default function CasesPage() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       loading={idx < 3 ? "eager" : "lazy"}
                       unoptimized
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">

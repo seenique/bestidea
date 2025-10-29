@@ -30,7 +30,7 @@ const COMPARISON = [
 
 export default function ComparisonSection() {
   return (
-    <section className="border-b border-slate-200/50 bg-gradient-to-br from-purple-50/30 via-white/50 to-cyan-50/30 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+    <section className="border-b border-slate-200/50 bg-gradient-to-br from-purple-50/30 via-white/50 to-cyan-50/30 backdrop-blur-sm relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-2 text-slate-900">Сравнение подходов</h2>

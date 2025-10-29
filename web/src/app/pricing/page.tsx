@@ -56,7 +56,7 @@ export default function PricingPage() {
       </header>
 
       <main className="relative z-10">
-        <section className="border-b border-slate-200/50 bg-gradient-to-b from-slate-50/60 to-white/50 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+        <section className="border-b border-slate-200/50 bg-gradient-to-b from-slate-50/60 to-white/50 backdrop-blur-sm relative overflow-hidden">
           <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">

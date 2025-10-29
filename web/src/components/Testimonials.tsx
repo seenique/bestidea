@@ -47,7 +47,7 @@ export default function Testimonials() {
     },
   ];
   return (
-    <section className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+    <section className="border-b border-slate-200/50 bg-gradient-to-br from-white/70 via-purple-50/30 to-white/70 backdrop-blur-sm relative overflow-hidden">
       <SectionQuote text="ИИ создаёт, ты зарабатываешь" top="8%" right="3%" rotation={4} delay="0.3s" />
       <div className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-3xl font-bold mb-2 text-slate-900">Отзывы</h2>
@@ -59,7 +59,7 @@ export default function Testimonials() {
               className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-lg transition-all group"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-purple-300 transition-colors">
+                <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-purple-300 transition-colors bg-gradient-to-br from-purple-200 to-cyan-200">
                   <Image
                     src={t.avatar}
                     alt={t.name}
@@ -67,6 +67,10 @@ export default function Testimonials() {
                     className="object-cover"
                     sizes="56px"
                     unoptimized
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
                   />
                 </div>
                 <div className="flex-1">

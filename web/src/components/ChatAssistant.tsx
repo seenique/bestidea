@@ -112,31 +112,36 @@ export default function ChatAssistant() {
   }
 
   return (
-    <section className="border-b border-slate-200/50 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 relative" style={{ overflow: 'visible' }}>
+    <section className="border-b border-slate-200/50 bg-gradient-to-br from-purple-50/40 via-white/60 to-cyan-50/40 backdrop-blur-sm relative overflow-hidden">
       <div className="mx-auto max-w-4xl px-6 py-16">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-2 text-white">ИИ‑ассистент</h2>
-          <p className="text-slate-300">Помогу выбрать решение и рассказать про цены</p>
+          <h2 className="text-3xl font-bold mb-2 text-slate-900">
+            <span className="gradient-text">ИИ‑ассистент</span>
+          </h2>
+          <p className="text-slate-600">Помогу выбрать решение и рассказать про цены</p>
         </div>
 
-        <div className="bg-slate-800/90 backdrop-blur-md rounded-2xl border border-slate-700/50 shadow-2xl overflow-hidden">
+        <div className="bg-white/80 backdrop-blur-md rounded-2xl border border-purple-200/70 shadow-xl overflow-hidden relative">
+          {/* Decorative gradient */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-400/20 to-cyan-400/20 rounded-full blur-3xl" />
+          
           {/* Chat messages */}
-          <div ref={boxRef} className="h-96 space-y-4 overflow-y-auto p-6 bg-slate-900/50">
+          <div ref={boxRef} className="h-96 space-y-4 overflow-y-auto p-6 bg-gradient-to-b from-white/50 to-white relative z-10">
             {messages.length === 0 && showSuggestions && (
               <div className="space-y-4">
                 <div className="text-center">
-                  <div className="text-xl font-semibold text-white mb-1">Привет,</div>
-                  <div className="text-slate-400">Как я могу тебе помочь сегодня?</div>
+                  <div className="text-xl font-semibold text-slate-900 mb-1">Привет,</div>
+                  <div className="text-slate-600">Как я могу тебе помочь сегодня?</div>
                 </div>
                 <div className="grid grid-cols-2 gap-3 mt-6">
                   {SUGGESTIONS.map((s, idx) => (
                     <button
                       key={idx}
                       onClick={() => send(s.prompt)}
-                      className="group text-left rounded-xl border border-slate-700/50 bg-slate-800/50 hover:bg-slate-700/50 hover:border-purple-500/50 p-4 transition-all cursor-pointer"
+                      className="group text-left rounded-xl border border-purple-200/50 bg-white/80 hover:bg-gradient-to-br hover:from-purple-50 hover:to-cyan-50 hover:border-purple-400/70 p-4 transition-all cursor-pointer shadow-sm hover:shadow-md"
                     >
-                      <div className="font-semibold text-white mb-1 group-hover:text-purple-300 transition-colors">{s.title}</div>
-                      <div className="text-sm text-slate-400">{s.desc}</div>
+                      <div className="font-semibold text-slate-900 mb-1 group-hover:text-purple-600 transition-colors">{s.title}</div>
+                      <div className="text-sm text-slate-600">{s.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -145,7 +150,7 @@ export default function ChatAssistant() {
             
             {messages.map((m, i) => (
               <div key={i} className={m.role === "user" ? "flex justify-end" : "flex justify-start"}>
-                <div className={`max-w-[85%] rounded-2xl px-4 py-3 ${m.role === "user" ? "bg-gradient-to-r from-purple-500 to-cyan-500 text-white" : "bg-slate-800 border border-slate-700 text-slate-200"}`}>
+                <div className={`max-w-[85%] rounded-2xl px-4 py-3 ${m.role === "user" ? "bg-gradient-to-r from-purple-500 to-cyan-500 text-white shadow-md" : "bg-white border border-slate-200/70 text-slate-900 shadow-sm"}`}>
                   {m.content}
                 </div>
               </div>
@@ -153,12 +158,12 @@ export default function ChatAssistant() {
           </div>
 
           {/* Input area */}
-          <div className="flex gap-2 border-t border-slate-700/50 bg-slate-800/90 p-4">
+          <div className="flex gap-2 border-t border-purple-200/50 bg-white/90 backdrop-blur-sm p-4 relative z-10">
             <input 
               value={input} 
               onChange={e => setInput(e.target.value)} 
               onKeyDown={e => e.key === 'Enter' && send()} 
-              className="flex-1 rounded-xl border border-slate-600/50 bg-slate-900/50 text-white placeholder-slate-500 p-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all" 
+              className="flex-1 rounded-xl border border-purple-200/70 bg-white/80 text-slate-900 placeholder-slate-500 p-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all" 
               placeholder="Введите сообщение..." 
             />
             <button 

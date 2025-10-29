@@ -9,7 +9,7 @@ const STATS = [
 
 export default function StatsSection() {
   return (
-    <section className="border-b border-slate-200/50 bg-gradient-to-br from-purple-50/40 via-white/50 to-cyan-50/40 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+    <section className="border-b border-slate-200/50 bg-gradient-to-br from-purple-50/40 via-white/50 to-cyan-50/40 backdrop-blur-sm relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-2 text-slate-900">Цифры, которые говорят</h2>
@@ -19,13 +19,16 @@ export default function StatsSection() {
           {STATS.map((stat, i) => (
             <div
               key={i}
-              className="text-center rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-md transition-all"
+              className="text-center rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-purple-300/70 hover:shadow-xl transition-all relative overflow-hidden group"
             >
-              <div className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-2">
-                {stat.value}
+              <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${i % 2 === 0 ? 'from-purple-400/20 to-cyan-400/20' : 'from-cyan-400/20 to-purple-400/20'} rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity`} />
+              <div className="relative z-10">
+                <div className="text-4xl md:text-5xl font-extrabold gradient-text mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-lg font-semibold text-slate-900 mb-1">{stat.label}</div>
+                <div className="text-sm text-slate-600">{stat.sublabel}</div>
               </div>
-              <div className="text-lg font-semibold text-slate-900 mb-1">{stat.label}</div>
-              <div className="text-sm text-slate-600">{stat.sublabel}</div>
             </div>
           ))}
         </div>
