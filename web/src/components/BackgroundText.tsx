@@ -102,7 +102,7 @@ export default function BackgroundText() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[5]">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
       {quotes.map((quote, idx) => (
         <div
           key={idx}
@@ -113,22 +113,23 @@ export default function BackgroundText() {
             right: quote.right,
             bottom: quote.bottom,
             transform: `rotate(${quote.rotation || 0}deg)`,
+            zIndex: 1,
           }}
         >
           <div
-            className="flex items-start gap-2 animate-fade-in-out mix-blend-multiply"
+            className="flex items-start gap-2 animate-fade-in-out"
             style={{ animationDelay: quote.delay || "0s" }}
           >
             {/* Opening quote mark - large and prominent */}
-            <span className="text-slate-600 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none" style={{ opacity: 0.4, fontFamily: 'Georgia, serif', textShadow: '1px 1px 2px rgba(0,0,0,0.05)' }}>
+            <span className="text-slate-600 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none drop-shadow-sm" style={{ fontFamily: 'Georgia, serif' }}>
               "
             </span>
             {/* Quote text */}
-            <div className="text-sm md:text-base font-medium text-slate-800 max-w-[180px] md:max-w-[220px] leading-snug pt-1" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.5)' }}>
+            <div className="text-sm md:text-base font-medium text-slate-800 max-w-[180px] md:max-w-[220px] leading-snug pt-1 drop-shadow-sm">
               {quote.text}
             </div>
             {/* Closing quote mark - at the end, aligned to bottom */}
-            <span className="text-slate-600 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none self-end mb-2" style={{ opacity: 0.4, fontFamily: 'Georgia, serif', textShadow: '1px 1px 2px rgba(0,0,0,0.05)' }}>
+            <span className="text-slate-600 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none self-end mb-2 drop-shadow-sm" style={{ fontFamily: 'Georgia, serif' }}>
               "
             </span>
           </div>
