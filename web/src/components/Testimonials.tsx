@@ -1,3 +1,5 @@
+import SectionQuote from "@/components/SectionQuote";
+
 export default function Testimonials() {
   const items = [
     {
@@ -44,7 +46,8 @@ export default function Testimonials() {
     },
   ];
   return (
-    <section className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
+    <section className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+      <SectionQuote text="ИИ создаёт, ты зарабатываешь" top="20%" right="15%" rotation={5} delay="0.3s" />
       <div className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-3xl font-bold mb-2 text-slate-900">Отзывы</h2>
         <p className="text-slate-600 mb-8">Что говорят клиенты</p>
@@ -52,25 +55,36 @@ export default function Testimonials() {
           {items.map((t, i) => (
             <div
               key={i}
-              className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-md transition-all"
+              className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-6 hover:border-slate-300/70 hover:shadow-lg transition-all group"
             >
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-start gap-4 mb-4">
                 <img
                   src={t.avatar}
                   alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover border border-slate-200"
+                  className="w-14 h-14 rounded-full object-cover border-2 border-slate-200 group-hover:border-purple-300 transition-colors"
                 />
                 <div className="flex-1">
-                  <div className="font-bold text-slate-900">{t.name}</div>
-                  <div className="text-xs text-slate-500">{t.role}</div>
+                  <div className="font-bold text-slate-900 mb-1">{t.name}</div>
+                  <div className="text-xs text-slate-500 mb-2">{t.role}</div>
+                  <div className="flex gap-1">
+                    {Array.from({ length: t.rating }).map((_, i) => (
+                      <span key={i} className="text-amber-400 text-sm">⭐</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className="flex gap-1 mb-3">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <span key={i} className="text-amber-400">⭐</span>
-                ))}
+              <div className="text-slate-700 text-sm leading-relaxed mb-4">"{t.text}"</div>
+              <div className="pt-4 border-t border-slate-200/50">
+                <div className="text-xs text-slate-500 font-medium">Результат проекта:</div>
+                <div className="text-xs text-green-600 font-semibold mt-1">
+                  {i === 0 && "Экономия ~70%, рост конверсии +22%"}
+                  {i === 1 && "Автоматизация 80%, без простоев"}
+                  {i === 2 && "MVP за 6 недель, конверсия +18%"}
+                  {i === 3 && "Конверсия +28%, время загрузки -45%"}
+                  {i === 4 && "10k+ студентов, рост завершения +42%"}
+                  {i === 5 && "Время найма -50%, удержание +31%"}
+                </div>
               </div>
-              <div className="text-slate-700 text-sm leading-relaxed">"{t.text}"</div>
             </div>
           ))}
         </div>

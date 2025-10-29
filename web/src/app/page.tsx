@@ -2,6 +2,10 @@ import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import Testimonials from "@/components/Testimonials";
 import BackgroundText from "@/components/BackgroundText";
+import SectionQuote from "@/components/SectionQuote";
+import CasesPreview from "@/components/CasesPreview";
+import StatsSection from "@/components/StatsSection";
+import ComparisonSection from "@/components/ComparisonSection";
 
 export default function Home() {
   return (
@@ -28,6 +32,8 @@ export default function Home() {
       <main className="relative z-10">
         {/* Hero */}
         <section className="border-b border-slate-200/50 bg-gradient-to-b from-slate-50/60 to-white/50 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+          <SectionQuote text="Этот сайт был создан за 45 минут" top="15%" left="5%" rotation={-5} delay="0s" />
+          <SectionQuote text="CRM за неделю — реальность 2025 года" top="10%" right="8%" rotation={3} delay="0.5s" />
           <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-2 md:py-28 relative z-10">
             <div>
               <h1 className="text-3xl font-bold leading-tight md:text-5xl text-slate-900">
@@ -65,8 +71,12 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Stats Section */}
+        <StatsSection />
+
         {/* Benefits */}
-        <section id="benefits" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
+        <section id="benefits" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+          <SectionQuote text="10× дешевле — не маркетинг" top="25%" left="10%" rotation={-8} delay="1s" />
           <div className="mx-auto grid max-w-6xl gap-6 px-6 py-16 md:grid-cols-3">
             {[
               { title: "Дешевизна", desc: "снижение бюджета разработки до 10× за счет ИИ и модульности" },
@@ -85,7 +95,8 @@ export default function Home() {
         </section>
 
         {/* Catalog */}
-        <section id="catalog" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
+        <section id="catalog" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+          <SectionQuote text="От идеи до MVP за дни" top="30%" right="12%" rotation={6} delay="1.5s" />
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Каталог решений</h2>
             <p className="text-slate-600 mb-8">Что мы создаём с помощью ИИ</p>
@@ -111,7 +122,8 @@ export default function Home() {
         </section>
 
         {/* Process */}
-        <section id="process" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
+        <section id="process" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+          <SectionQuote text="Будущее разработки уже здесь" bottom="35%" left="8%" rotation={-4} delay="2s" />
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Процесс</h2>
             <p className="text-slate-600 mb-8">Как мы работаем</p>
@@ -132,11 +144,19 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Cases Preview */}
+        <CasesPreview />
+
+        {/* Comparison */}
+        <ComparisonSection />
+
         {/* Testimonials */}
         <Testimonials />
 
         {/* Pricing */}
-        <section id="pricing" className="border-b border-slate-200/50 bg-slate-50/60 backdrop-blur-sm">
+        <section id="pricing" className="border-b border-slate-200/50 bg-slate-50/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+          <SectionQuote text="Маркетплейс за 6 недель" top="25%" left="12%" rotation={-6} delay="0.8s" />
+          <SectionQuote text="ERP без миллиона рублей" bottom="30%" right="10%" rotation={4} delay="1.2s" />
           <div className="mx-auto max-w-6xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Пакеты и цены</h2>
             <p className="text-slate-600 mb-8">Выберите подходящий вариант</p>
@@ -166,7 +186,8 @@ export default function Home() {
         </section>
 
         {/* Lead Form */}
-        <section id="lead" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
+        <section id="lead" className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+          <SectionQuote text="Скорость. Экономия. Результат." top="40%" left="7%" rotation={-3} delay="1.8s" />
           <div className="mx-auto max-w-2xl px-6 py-16">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Получить расчет за 24 часа</h2>
             <p className="text-slate-600 mb-6">Заполните форму, мы свяжемся с вами</p>
@@ -181,7 +202,8 @@ export default function Home() {
         </section>
 
         {/* CTA */}
-        <section id="contact" className="bg-slate-50/60 backdrop-blur-sm">
+        <section id="contact" className="bg-slate-50/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
+          <SectionQuote text="Твой собственный стартап за неделю" bottom="25%" right="8%" rotation={7} delay="0.6s" />
           <div className="mx-auto max-w-6xl px-6 py-16 text-center">
             <h2 className="text-3xl font-bold mb-2 text-slate-900">Готовы начать?</h2>
             <p className="mt-3 text-slate-700 text-lg">Созвон на 15 минут — покажем демо и соберем бриф.</p>
