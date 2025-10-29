@@ -24,10 +24,10 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="relative">
-        <BackgroundText />
+      <BackgroundText />
+      <main className="relative z-10">
         {/* Hero */}
-        <section className="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+        <section className="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white relative" style={{ overflow: 'visible' }}>
           <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-2 md:py-28 relative z-10">
             <div>
               <h1 className="text-3xl font-bold leading-tight md:text-5xl text-slate-900">

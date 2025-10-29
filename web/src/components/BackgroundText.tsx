@@ -102,7 +102,7 @@ export default function BackgroundText() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div className="fixed inset-0 pointer-events-none z-[1]" style={{ overflow: 'visible' }}>
       {quotes.map((quote, idx) => (
         <div
           key={idx}
