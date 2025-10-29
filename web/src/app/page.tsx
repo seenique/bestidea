@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import Testimonials from "@/components/Testimonials";
+import BackgroundText from "@/components/BackgroundText";
 
 export default function Home() {
   return (
@@ -23,7 +24,8 @@ export default function Home() {
         </div>
       </header>
 
-      <main>
+      <BackgroundText />
+      <main className="relative z-10">
         {/* Hero */}
         <section className="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
           <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-2 md:py-28 relative z-10">
