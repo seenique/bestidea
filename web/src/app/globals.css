@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --brand: #8b5cf6; /* bright violet */
+  --brand-2: #06b6d4; /* cyan */
+  --brand-3: #f59e0b; /* amber accent */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-bg-dark: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(139, 92, 246, 0.2);
+  --glass-border-dark: rgba(255,255,255,0.2);
+  --glow-purple: rgba(139, 92, 246, 0.4);
+  --glow-cyan: rgba(6, 182, 212, 0.4);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #e6e8ef;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-brand {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: white;
+  box-shadow: 0 4px 20px var(--glow-purple), 0 0 40px var(--glow-cyan);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px var(--glow-purple), 0 0 60px var(--glow-cyan);
+}
+.btn-brand::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+.btn-brand:hover::before {
+  left: 100%;
+}
+
+/* Glass panels */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border: 1px solid var(--glass-border);
+}
+.dark .glass {
+  background: var(--glass-bg-dark);
+  border-color: var(--glass-border-dark);
+}
+
+/* Background grid and noise overlays */
+.bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(127, 127, 127, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(127, 127, 127, 0.08) 1px,
+      transparent 1px
+    );
+  background-size: 24px 24px;
+}
+.dark .bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    );
+}
+
+.bg-noise {
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+.dark .bg-noise {
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+}
+
+.shadow-elevated {
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1), 0 2px 8px rgba(6, 182, 212, 0.08);
+}
+
+/* AI-style glow effects */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.ai-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px var(--glow-purple));
+}
+
+/* Neural network pattern background */
+.bg-neural {
+  background-image: 
+    radial-gradient(circle at 20% 50%, var(--glow-purple) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, var(--glow-cyan) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(245, 158, 11, 0.3) 0%, transparent 50%);
+  background-size: 200% 200%;
+  animation: neural-drift 20s ease-in-out infinite;
+}
+
+@keyframes neural-drift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2), var(--brand-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .btn-brand {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .glass {
+    padding: 1rem;
+  }
+  
+  h1, h2 {
+    line-height: 1.2;
+  }
+}
