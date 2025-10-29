@@ -99,21 +99,27 @@ export default function BackgroundText() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
+  // Оптимизация: используем will-change для GPU ускорения
+  const decorativeElements = useMemo(() => (
+    <>
+      <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-purple-200/20 rounded-full blur-3xl animate-float will-change-transform" />
+      <div className="absolute bottom-1/4 left-1/4 w-40 h-40 bg-cyan-200/20 rounded-full blur-3xl animate-float-delayed will-change-transform" />
+      <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-purple-300/15 rounded-full blur-2xl animate-float-slow will-change-transform" />
+      <div className="absolute top-2/3 left-1/3 w-36 h-36 bg-cyan-300/15 rounded-full blur-3xl animate-float will-change-transform" style={{ animationDelay: '3s' }} />
+      <div className="absolute bottom-1/3 right-1/5 w-28 h-28 bg-purple-200/15 rounded-full blur-2xl animate-float-slow will-change-transform" style={{ animationDelay: '4s' }} />
+    </>
+  ), []);
+
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[1]" style={{ overflow: 'visible' }}>
-      {/* Floating decorative elements - more varied */}
-      <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-purple-200/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 left-1/4 w-40 h-40 bg-cyan-200/20 rounded-full blur-3xl animate-float-delayed" />
-      <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-purple-300/15 rounded-full blur-2xl animate-float-slow" />
-      <div className="absolute top-2/3 left-1/3 w-36 h-36 bg-cyan-300/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
-      <div className="absolute bottom-1/3 right-1/5 w-28 h-28 bg-purple-200/15 rounded-full blur-2xl animate-float-slow" style={{ animationDelay: '4s' }} />
+    <div className="fixed inset-0 pointer-events-none z-[1]" style={{ overflow: 'visible', willChange: 'transform' }}>
+      {decorativeElements}
       
-      {/* Grid pattern overlay (subtle) */}
+      {/* Grid pattern overlay (subtle) - статичный, не нужен will-change */}
       <div className="absolute inset-0 bg-grid opacity-5" />
       
-      {/* Gradient orbs */}
+      {/* Gradient orbs - статичные */}
       <div className="absolute top-0 left-1/3 w-64 h-64 bg-gradient-to-br from-purple-100/30 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-gradient-to-tl from-cyan-100/30 to-transparent rounded-full blur-3xl" />
     </div>

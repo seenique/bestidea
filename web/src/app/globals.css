@@ -46,6 +46,59 @@ body {
 section {
   will-change: transform;
   transform: translateZ(0); /* Force hardware acceleration */
+  content-visibility: auto; /* Lazy rendering для секций вне viewport */
+}
+
+/* Оптимизация анимаций - используем GPU */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) translateX(0) translateZ(0);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translateY(-20px) translateX(10px) translateZ(0);
+    opacity: 0.8;
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% { 
+    transform: translateY(0) translateX(0) translateZ(0);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: translateY(20px) translateX(-15px) translateZ(0);
+    opacity: 0.7;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { 
+    transform: translateY(0) translateX(0) translateZ(0);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: translateY(-15px) translateX(-10px) translateZ(0);
+    opacity: 0.7;
+  }
+}
+
+/* Оптимизация для плавного скролла */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Отключение анимаций для пользователей, предпочитающих уменьшенное движение */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .btn-brand {

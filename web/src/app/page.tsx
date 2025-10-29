@@ -1,12 +1,18 @@
 import Link from "next/link";
-import HeroSection from "@/components/HeroSection";
-import Testimonials from "@/components/Testimonials";
+import dynamic from "next/dynamic";
 import BackgroundText from "@/components/BackgroundText";
 import SectionQuote from "@/components/SectionQuote";
-import CasesPreview from "@/components/CasesPreview";
-import StatsSection from "@/components/StatsSection";
-import ComparisonSection from "@/components/ComparisonSection";
-import ChatAssistant from "@/components/ChatAssistant";
+
+// Lazy load тяжелые компоненты
+const HeroSection = dynamic(() => import("@/components/HeroSection"), { 
+  ssr: false,
+  loading: () => <div className="h-64 w-full rounded-2xl bg-gradient-to-br from-purple-50/50 to-white border border-purple-200/50 animate-pulse" />
+});
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: false });
+const CasesPreview = dynamic(() => import("@/components/CasesPreview"), { ssr: false });
+const StatsSection = dynamic(() => import("@/components/StatsSection"), { ssr: false });
+const ComparisonSection = dynamic(() => import("@/components/ComparisonSection"), { ssr: false });
+const ChatAssistant = dynamic(() => import("@/components/ChatAssistant"), { ssr: false });
 
 export default function Home() {
   return (
