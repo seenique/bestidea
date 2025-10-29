@@ -103,39 +103,6 @@ export default function BackgroundText() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[1]" style={{ overflow: 'visible' }}>
-      {quotes.map((quote, idx) => (
-        <div
-          key={idx}
-          className="absolute"
-          style={{
-            top: quote.top,
-            left: quote.left,
-            right: quote.right,
-            bottom: quote.bottom,
-            transform: `rotate(${quote.rotation || 0}deg)`,
-            zIndex: 1,
-          }}
-        >
-          <div
-            className="flex items-start gap-2 animate-fade-in-out"
-            style={{ animationDelay: quote.delay || "0s" }}
-          >
-            {/* Opening quote mark - large and prominent */}
-            <span className="text-slate-700 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none drop-shadow-md" style={{ fontFamily: 'Georgia, serif' }}>
-              "
-            </span>
-            {/* Quote text */}
-            <div className="text-sm md:text-base font-semibold text-slate-900 max-w-[180px] md:max-w-[220px] leading-snug pt-1 drop-shadow-sm">
-              {quote.text}
-            </div>
-            {/* Closing quote mark - at the end, aligned to bottom */}
-            <span className="text-slate-700 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none self-end mb-2 drop-shadow-md" style={{ fontFamily: 'Georgia, serif' }}>
-              "
-            </span>
-          </div>
-        </div>
-      ))}
-
       {/* Floating decorative elements - more varied */}
       <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-purple-200/20 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 left-1/4 w-40 h-40 bg-cyan-200/20 rounded-full blur-3xl animate-float-delayed" />

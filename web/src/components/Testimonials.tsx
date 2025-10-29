@@ -47,7 +47,7 @@ export default function Testimonials() {
   ];
   return (
     <section className="border-b border-slate-200/50 bg-white/60 backdrop-blur-sm relative" style={{ overflow: 'visible' }}>
-      <SectionQuote text="ИИ создаёт, ты зарабатываешь" top="20%" right="15%" rotation={5} delay="0.3s" />
+      <SectionQuote text="ИИ создаёт, ты зарабатываешь" top="8%" right="3%" rotation={12} delay="0.3s" />
       <div className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-3xl font-bold mb-2 text-slate-900">Отзывы</h2>
         <p className="text-slate-600 mb-8">Что говорят клиенты</p>
