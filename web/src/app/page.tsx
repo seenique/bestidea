@@ -25,7 +25,7 @@ export default function Home() {
       </header>
 
       <BackgroundText />
-      <main className="relative z-10">
+      <main className="relative z-20">
         {/* Hero */}
         <section className="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
           <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-2 md:py-28 relative z-10">

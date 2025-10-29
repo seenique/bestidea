@@ -1,18 +1,98 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const headlines = [
-  "Этот сайт был создан за 45 минут",
-  "CRM за неделю — реальность 2025 года",
-  "Твой собственный стартап за неделю",
-  "Тотальная экономия",
-  "ИИ создаёт, ты зарабатываешь",
-  "10× дешевле — не маркетинг",
-  "От идеи до MVP за дни",
-  "Будущее разработки уже здесь",
-  "Маркетплейс за 6 недель",
-  "ERP без миллиона рублей",
-  "Скорость. Экономия. Результат.",
+type QuotePosition = {
+  text: string;
+  section: "hero" | "benefits" | "catalog" | "process" | "testimonials" | "pricing" | "lead" | "cta";
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  rotation?: number;
+  delay?: string;
+};
+
+const quotes: QuotePosition[] = [
+  {
+    text: "Этот сайт был создан за 45 минут",
+    section: "hero",
+    top: "20%",
+    left: "5%",
+    rotation: -5,
+    delay: "0s",
+  },
+  {
+    text: "CRM за неделю — реальность 2025 года",
+    section: "hero",
+    top: "15%",
+    right: "8%",
+    rotation: 3,
+    delay: "0.5s",
+  },
+  {
+    text: "10× дешевле — не маркетинг",
+    section: "benefits",
+    top: "25%",
+    left: "10%",
+    rotation: -8,
+    delay: "1s",
+  },
+  {
+    text: "От идеи до MVP за дни",
+    section: "catalog",
+    top: "30%",
+    right: "12%",
+    rotation: 6,
+    delay: "1.5s",
+  },
+  {
+    text: "Будущее разработки уже здесь",
+    section: "process",
+    bottom: "35%",
+    left: "8%",
+    rotation: -4,
+    delay: "2s",
+  },
+  {
+    text: "ИИ создаёт, ты зарабатываешь",
+    section: "testimonials",
+    top: "20%",
+    right: "15%",
+    rotation: 5,
+    delay: "0.3s",
+  },
+  {
+    text: "Маркетплейс за 6 недель",
+    section: "pricing",
+    top: "25%",
+    left: "12%",
+    rotation: -6,
+    delay: "0.8s",
+  },
+  {
+    text: "ERP без миллиона рублей",
+    section: "pricing",
+    bottom: "30%",
+    right: "10%",
+    rotation: 4,
+    delay: "1.2s",
+  },
+  {
+    text: "Скорость. Экономия. Результат.",
+    section: "lead",
+    top: "40%",
+    left: "7%",
+    rotation: -3,
+    delay: "1.8s",
+  },
+  {
+    text: "Твой собственный стартап за неделю",
+    section: "cta",
+    bottom: "25%",
+    right: "8%",
+    rotation: 7,
+    delay: "0.6s",
+  },
 ];
 
 export default function BackgroundText() {
@@ -22,62 +102,38 @@ export default function BackgroundText() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[1]">
-      {/* Top headlines */}
-      <div className="absolute top-16 left-0 right-0 flex justify-between px-4 md:px-8">
-        <div className="text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 whitespace-nowrap animate-slide-left animate-shimmer mix-blend-multiply">
-          {headlines[0]}
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[5]">
+      {quotes.map((quote, idx) => (
+        <div
+          key={idx}
+          className="absolute"
+          style={{
+            top: quote.top,
+            left: quote.left,
+            right: quote.right,
+            bottom: quote.bottom,
+            transform: `rotate(${quote.rotation || 0}deg)`,
+          }}
+        >
+          <div
+            className="flex items-start gap-2 animate-fade-in-out"
+            style={{ animationDelay: quote.delay || "0s" }}
+          >
+            {/* Opening quote mark - large and prominent */}
+            <span className="text-slate-500 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none" style={{ opacity: 0.35, fontFamily: 'Georgia, serif' }}>
+              "
+            </span>
+            {/* Quote text */}
+            <div className="text-sm md:text-base font-medium text-slate-700 max-w-[180px] md:max-w-[220px] leading-snug pt-1">
+              {quote.text}
+            </div>
+            {/* Closing quote mark - at the end, aligned to bottom */}
+            <span className="text-slate-500 text-5xl md:text-6xl lg:text-7xl font-serif leading-none select-none self-end mb-2" style={{ opacity: 0.35, fontFamily: 'Georgia, serif' }}>
+              "
+            </span>
+          </div>
         </div>
-        <div className="hidden lg:block text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 whitespace-nowrap animate-slide-right animate-shimmer mix-blend-multiply" style={{ animationDelay: '0.5s' }}>
-          {headlines[1]}
-        </div>
-      </div>
-
-      {/* Left side headlines (vertical) */}
-      <div className="absolute top-1/4 left-2 md:left-4 transform -rotate-90 origin-left">
-        <div className="text-base md:text-2xl lg:text-3xl font-extrabold text-slate-900 whitespace-nowrap animate-pulse-glow mix-blend-multiply">
-          {headlines[2]}
-        </div>
-      </div>
-      <div className="absolute top-2/3 left-2 md:left-4 transform -rotate-90 origin-left">
-        <div className="text-base md:text-2xl lg:text-3xl font-extrabold text-slate-900 whitespace-nowrap animate-pulse-glow mix-blend-multiply" style={{ animationDelay: '1s' }}>
-          {headlines[5]}
-        </div>
-      </div>
-
-      {/* Right side headlines (vertical) */}
-      <div className="absolute top-1/3 right-2 md:right-4 transform rotate-90 origin-right">
-        <div className="text-base md:text-2xl lg:text-3xl font-extrabold text-slate-900 whitespace-nowrap animate-pulse-glow mix-blend-multiply" style={{ animationDelay: '0.3s' }}>
-          {headlines[3]}
-        </div>
-      </div>
-      <div className="absolute bottom-1/4 right-2 md:right-4 transform rotate-90 origin-right">
-        <div className="text-base md:text-2xl lg:text-3xl font-extrabold text-slate-900 whitespace-nowrap animate-pulse-glow mix-blend-multiply" style={{ animationDelay: '1.5s' }}>
-          {headlines[9]}
-        </div>
-      </div>
-
-      {/* Bottom headlines */}
-      <div className="absolute bottom-16 left-0 right-0 flex justify-between px-4 md:px-8">
-        <div className="text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 whitespace-nowrap animate-slide-right animate-shimmer mix-blend-multiply" style={{ animationDelay: '1s' }}>
-          {headlines[4]}
-        </div>
-        <div className="hidden lg:block text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 whitespace-nowrap animate-slide-left animate-shimmer mix-blend-multiply" style={{ animationDelay: '1.5s' }}>
-          {headlines[6]}
-        </div>
-      </div>
-
-      {/* Additional floating text elements */}
-      <div className="absolute top-1/2 left-1/4">
-        <div className="text-lg md:text-2xl lg:text-3xl font-extrabold text-slate-600 transform -rotate-12 animate-shimmer" style={{ animationDelay: '0.7s' }}>
-          {headlines[7]}
-        </div>
-      </div>
-      <div className="absolute bottom-1/3 right-1/4">
-        <div className="text-lg md:text-2xl lg:text-3xl font-extrabold text-slate-600 transform rotate-12 animate-shimmer" style={{ animationDelay: '1.2s' }}>
-          {headlines[10]}
-        </div>
-      </div>
+      ))}
 
       {/* Floating decorative elements - more varied */}
       <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-purple-200/20 rounded-full blur-3xl animate-float" />
@@ -95,4 +151,3 @@ export default function BackgroundText() {
     </div>
   );
 }
-
